@@ -27,7 +27,7 @@ import (
 
 	strfmt "github.com/go-openapi/strfmt"
 
-	"github.com/digitalocean/go-netbox/netbox/models"
+	models "github.com/beorn-/go-netbox/netbox/models"
 )
 
 // VirtualizationInterfacesCreateReader is a Reader for the VirtualizationInterfacesCreate structure.
@@ -38,7 +38,6 @@ type VirtualizationInterfacesCreateReader struct {
 // ReadResponse reads a server response into the received o.
 func (o *VirtualizationInterfacesCreateReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
-
 	case 201:
 		result := NewVirtualizationInterfacesCreateCreated()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -66,6 +65,10 @@ type VirtualizationInterfacesCreateCreated struct {
 
 func (o *VirtualizationInterfacesCreateCreated) Error() string {
 	return fmt.Sprintf("[POST /virtualization/interfaces/][%d] virtualizationInterfacesCreateCreated  %+v", 201, o.Payload)
+}
+
+func (o *VirtualizationInterfacesCreateCreated) GetPayload() *models.WritableInterface {
+	return o.Payload
 }
 
 func (o *VirtualizationInterfacesCreateCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {

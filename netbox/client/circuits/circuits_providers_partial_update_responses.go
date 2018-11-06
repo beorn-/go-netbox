@@ -27,7 +27,7 @@ import (
 
 	strfmt "github.com/go-openapi/strfmt"
 
-	"github.com/digitalocean/go-netbox/netbox/models"
+	models "github.com/beorn-/go-netbox/netbox/models"
 )
 
 // CircuitsProvidersPartialUpdateReader is a Reader for the CircuitsProvidersPartialUpdate structure.
@@ -38,7 +38,6 @@ type CircuitsProvidersPartialUpdateReader struct {
 // ReadResponse reads a server response into the received o.
 func (o *CircuitsProvidersPartialUpdateReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
-
 	case 200:
 		result := NewCircuitsProvidersPartialUpdateOK()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -66,6 +65,10 @@ type CircuitsProvidersPartialUpdateOK struct {
 
 func (o *CircuitsProvidersPartialUpdateOK) Error() string {
 	return fmt.Sprintf("[PATCH /circuits/providers/{id}/][%d] circuitsProvidersPartialUpdateOK  %+v", 200, o.Payload)
+}
+
+func (o *CircuitsProvidersPartialUpdateOK) GetPayload() *models.WritableProvider {
+	return o.Payload
 }
 
 func (o *CircuitsProvidersPartialUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {

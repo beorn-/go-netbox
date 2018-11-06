@@ -34,6 +34,7 @@ import (
 type WritableInterfaceConnection struct {
 
 	// Status
+	// Enum: [false true]
 	ConnectionStatus bool `json:"connection_status,omitempty"`
 
 	// ID
@@ -42,11 +43,11 @@ type WritableInterfaceConnection struct {
 
 	// Interface a
 	// Required: true
-	InterfaceA *int64 `json:"interface_a"`
+	Interfacea *int64 `json:"interface_a"`
 
 	// Interface b
 	// Required: true
-	InterfaceB *int64 `json:"interface_b"`
+	Interfaceb *int64 `json:"interface_b"`
 }
 
 // Validate validates this writable interface connection
@@ -54,17 +55,14 @@ func (m *WritableInterfaceConnection) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateConnectionStatus(formats); err != nil {
-		// prop
 		res = append(res, err)
 	}
 
-	if err := m.validateInterfaceA(formats); err != nil {
-		// prop
+	if err := m.validateInterfacea(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateInterfaceB(formats); err != nil {
-		// prop
+	if err := m.validateInterfaceb(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -108,18 +106,18 @@ func (m *WritableInterfaceConnection) validateConnectionStatus(formats strfmt.Re
 	return nil
 }
 
-func (m *WritableInterfaceConnection) validateInterfaceA(formats strfmt.Registry) error {
+func (m *WritableInterfaceConnection) validateInterfacea(formats strfmt.Registry) error {
 
-	if err := validate.Required("interface_a", "body", m.InterfaceA); err != nil {
+	if err := validate.Required("interface_a", "body", m.Interfacea); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *WritableInterfaceConnection) validateInterfaceB(formats strfmt.Registry) error {
+func (m *WritableInterfaceConnection) validateInterfaceb(formats strfmt.Registry) error {
 
-	if err := validate.Required("interface_b", "body", m.InterfaceB); err != nil {
+	if err := validate.Required("interface_b", "body", m.Interfaceb); err != nil {
 		return err
 	}
 

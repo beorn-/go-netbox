@@ -27,7 +27,7 @@ import (
 
 	strfmt "github.com/go-openapi/strfmt"
 
-	"github.com/digitalocean/go-netbox/netbox/models"
+	models "github.com/beorn-/go-netbox/netbox/models"
 )
 
 // DcimDeviceBayTemplatesCreateReader is a Reader for the DcimDeviceBayTemplatesCreate structure.
@@ -38,7 +38,6 @@ type DcimDeviceBayTemplatesCreateReader struct {
 // ReadResponse reads a server response into the received o.
 func (o *DcimDeviceBayTemplatesCreateReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
-
 	case 201:
 		result := NewDcimDeviceBayTemplatesCreateCreated()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -66,6 +65,10 @@ type DcimDeviceBayTemplatesCreateCreated struct {
 
 func (o *DcimDeviceBayTemplatesCreateCreated) Error() string {
 	return fmt.Sprintf("[POST /dcim/device-bay-templates/][%d] dcimDeviceBayTemplatesCreateCreated  %+v", 201, o.Payload)
+}
+
+func (o *DcimDeviceBayTemplatesCreateCreated) GetPayload() *models.WritableDeviceBayTemplate {
+	return o.Payload
 }
 
 func (o *DcimDeviceBayTemplatesCreateCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {

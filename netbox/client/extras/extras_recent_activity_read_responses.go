@@ -27,7 +27,7 @@ import (
 
 	strfmt "github.com/go-openapi/strfmt"
 
-	"github.com/digitalocean/go-netbox/netbox/models"
+	models "github.com/beorn-/go-netbox/netbox/models"
 )
 
 // ExtrasRecentActivityReadReader is a Reader for the ExtrasRecentActivityRead structure.
@@ -38,7 +38,6 @@ type ExtrasRecentActivityReadReader struct {
 // ReadResponse reads a server response into the received o.
 func (o *ExtrasRecentActivityReadReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
-
 	case 200:
 		result := NewExtrasRecentActivityReadOK()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -66,6 +65,10 @@ type ExtrasRecentActivityReadOK struct {
 
 func (o *ExtrasRecentActivityReadOK) Error() string {
 	return fmt.Sprintf("[GET /extras/recent-activity/{id}/][%d] extrasRecentActivityReadOK  %+v", 200, o.Payload)
+}
+
+func (o *ExtrasRecentActivityReadOK) GetPayload() *models.UserAction {
+	return o.Payload
 }
 
 func (o *ExtrasRecentActivityReadOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {

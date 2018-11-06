@@ -17,10 +17,10 @@ package netbox
 import (
 	"fmt"
 
-	"github.com/go-openapi/strfmt"
+	"github.com/beorn-/go-netbox/netbox/client"
 	runtimeclient "github.com/go-openapi/runtime/client"
-
-	"github.com/digitalocean/go-netbox/netbox/client"
+	"github.com/go-openapi/strfmt"
+	//	"github.com/digitalocean/go-netbox/netbox/client"
 )
 
 // NewNetboxAt returns a client which will connect to the given
@@ -36,8 +36,8 @@ const authHeaderFormat = "Token %v"
 // NewNetboxWithAPIKey returna client which will connect to the given
 // hostname (and optionally port), and will set the expected Authorization
 // header on each request
-func NewNetboxWithAPIKey(host string, apiToken string) *client.NetBox {
-	t := runtimeclient.New(host, client.DefaultBasePath, client.DefaultSchemes)
+func NewNetboxWithAPIKey(host string, apiToken string, Schemes []string) *client.NetBox {
+	t := runtimeclient.New(host, client.DefaultBasePath, Schemes)
 	t.DefaultAuthentication = runtimeclient.APIKeyAuth(authHeaderName, "header", fmt.Sprintf(authHeaderFormat, apiToken))
 	return client.New(t, strfmt.Default)
 }

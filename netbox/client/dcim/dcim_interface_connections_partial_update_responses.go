@@ -27,7 +27,7 @@ import (
 
 	strfmt "github.com/go-openapi/strfmt"
 
-	"github.com/digitalocean/go-netbox/netbox/models"
+	models "github.com/beorn-/go-netbox/netbox/models"
 )
 
 // DcimInterfaceConnectionsPartialUpdateReader is a Reader for the DcimInterfaceConnectionsPartialUpdate structure.
@@ -38,7 +38,6 @@ type DcimInterfaceConnectionsPartialUpdateReader struct {
 // ReadResponse reads a server response into the received o.
 func (o *DcimInterfaceConnectionsPartialUpdateReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
-
 	case 200:
 		result := NewDcimInterfaceConnectionsPartialUpdateOK()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -66,6 +65,10 @@ type DcimInterfaceConnectionsPartialUpdateOK struct {
 
 func (o *DcimInterfaceConnectionsPartialUpdateOK) Error() string {
 	return fmt.Sprintf("[PATCH /dcim/interface-connections/{id}/][%d] dcimInterfaceConnectionsPartialUpdateOK  %+v", 200, o.Payload)
+}
+
+func (o *DcimInterfaceConnectionsPartialUpdateOK) GetPayload() *models.WritableInterfaceConnection {
+	return o.Payload
 }
 
 func (o *DcimInterfaceConnectionsPartialUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
