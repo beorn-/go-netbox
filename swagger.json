@@ -3,7 +3,7 @@
   "info": {
     "title": "NetBox API",
     "description": "API to access NetBox",
-    "termsOfService": "https://github.com/digitalocean/netbox",
+    "termsOfService": "https://github.com/beorn-/netbox",
     "contact": {
       "email": "netbox@digitalocean.com"
     },
