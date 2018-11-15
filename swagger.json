@@ -3073,7 +3073,7 @@
           "201": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/WritableDevice"
+              "$ref": "#/definitions/WritableDeviceResponse"
             }
           }
         },
@@ -6210,7 +6210,7 @@
           "201": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/WritableRack"
+              "$ref": "#/definitions/WritableRackResponse"
             }
           }
         },
@@ -14236,6 +14236,137 @@
         }
       }
     },
+    "WritableDeviceResponse": {
+      "required": [
+        "device_type",
+        "device_role",
+        "site"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 64
+        },
+        "device_type": {
+          "$ref": "#/definitions/NestedDeviceType"
+        },
+        "device_role": {
+          "$ref": "#/definitions/NestedDeviceRole"
+        },
+        "tenant": {
+          "title": "Tenant",
+          "type": "integer"
+        },
+        "platform": {
+          "title": "Platform",
+          "type": "integer"
+        },
+        "serial": {
+          "title": "Serial number",
+          "type": "string",
+          "maxLength": 50
+        },
+        "asset_tag": {
+          "title": "Asset tag",
+          "description": "A unique tag used to identify this device",
+          "type": "string",
+          "maxLength": 50
+        },
+        "site": {
+          "$ref": "#/definitions/NestedSite"
+        },
+        "rack": {
+          "$ref": "#/definitions/NestedRack"
+        },
+        "position": {
+          "title": "Position (U)",
+          "description": "The lowest-numbered unit occupied by the device",
+          "type": "integer",
+          "maximum": 32767,
+          "minimum": 1
+        },
+        "face": {
+          "title": "Rack face",
+          "type": "integer",
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "status": {
+          "title": "Status",
+          "required": [
+            "label",
+            "value"
+          ],
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "value": {
+              "type": "integer"
+            }
+          }
+        },
+        "primary_ip4": {
+          "title": "Primary IPv4",
+          "type": "integer"
+        },
+        "primary_ip6": {
+          "title": "Primary IPv6",
+          "type": "integer"
+        },
+        "cluster": {
+          "title": "Cluster",
+          "type": "integer"
+        },
+        "virtual_chassis": {
+          "title": "Virtual chassis",
+          "type": "integer"
+        },
+        "vc_position": {
+          "title": "Vc position",
+          "type": "integer",
+          "maximum": 255,
+          "minimum": 0
+        },
+        "vc_priority": {
+          "title": "Vc priority",
+          "type": "integer",
+          "maximum": 255,
+          "minimum": 0
+        },
+        "comments": {
+          "title": "Comments",
+          "type": "string"
+        },
+        "custom_fields": {
+          "title": "Custom fields",
+          "type": "object"
+        },
+        "created": {
+          "title": "Created",
+          "type": "string",
+          "format": "date",
+          "readOnly": true
+        },
+        "last_updated": {
+          "title": "Last updated",
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true
+        }
+      }
+    },
+
     "PeerInterface": {
       "title": "Interface a",
       "required": [
@@ -15429,6 +15560,142 @@
         }
       }
     },
+    "WritableRackResponse": {
+      "required": [
+        "name",
+        "site"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 50
+        },
+        "facility_id": {
+          "title": "Facility ID",
+          "type": "string",
+          "maxLength": 50
+        },
+        "site": {
+          "$ref": "#/definitions/NestedSite"
+        },
+        "group": {
+          "title": "Group",
+          "type": "integer"
+        },
+        "tenant": {
+          "title": "Tenant",
+          "type": "integer"
+        },
+        "role": {
+          "title": "Role",
+          "type": "integer"
+        },
+        "serial": {
+          "title": "Serial number",
+          "type": "string",
+          "maxLength": 50
+        },
+        "type": {
+          "title": "Type",
+          "type": "integer",
+          "enum": [
+            100,
+            200,
+            300,
+            1000,
+            1100
+          ]
+        },
+        "width": {
+          "title": "Width",
+          "required": [
+            "label",
+            "value"
+          ],
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "value": {
+              "type": "integer"
+            }
+          }
+        },
+        "u_height": {
+          "title": "Height (U)",
+          "type": "integer",
+          "maximum": 100,
+          "minimum": 1
+        },
+        "desc_units": {
+          "title": "Descending units",
+          "description": "Units are numbered top-to-bottom",
+          "type": "boolean"
+        },
+        "comments": {
+          "title": "Comments",
+          "type": "string"
+        },
+        "custom_fields": {
+          "title": "Custom fields",
+          "type": "object"
+        },
+        "created": {
+          "title": "Created",
+          "type": "string",
+          "format": "date",
+          "readOnly": true
+        },
+        "last_updated": {
+          "title": "Last updated",
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true
+        }
+      }
+    },
+    "NestedRegion": {
+      "title": "Parent",
+      "required": [
+        "name",
+        "slug"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "url": {
+          "title": "Url",
+          "type": "string",
+          "format": "uri",
+          "readOnly": true
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 50
+        },
+        "slug": {
+          "title": "Slug",
+          "type": "string",
+          "format": "slug",
+          "pattern": "^[-a-zA-Z0-9_]+$",
+          "maxLength": 50
+        }
+      }
+    },
+
     "WritableRack": {
       "required": [
         "name",
