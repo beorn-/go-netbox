@@ -36,8 +36,8 @@ const authHeaderFormat = "Token %v"
 // NewNetboxWithAPIKey returna client which will connect to the given
 // hostname (and optionally port), and will set the expected Authorization
 // header on each request
-func NewNetboxWithAPIKey(host string, apiToken string) *client.NetBox {
-	t := runtimeclient.New(host, client.DefaultBasePath, client.DefaultSchemes)
+func NewNetboxWithAPIKey(host string, apiToken string, schemes []string) *client.NetBox {
+	t := runtimeclient.New(host, client.DefaultBasePath, schemes)
 	t.DefaultAuthentication = runtimeclient.APIKeyAuth(authHeaderName, "header", fmt.Sprintf(authHeaderFormat, apiToken))
 	return client.New(t, strfmt.Default)
 }
