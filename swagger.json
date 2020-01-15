@@ -3117,7 +3117,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/WritableDevice"
+              "$ref": "#/definitions/WritableDeviceResponse"
             }
           }
         },
@@ -12178,7 +12178,7 @@
           "201": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/WritableVirtualMachine"
+              "$ref": "#/definitions/WritableVirtualMachineResponse"
             }
           }
         },
@@ -14236,6 +14236,137 @@
         }
       }
     },
+    "WritableDeviceResponse": {
+      "required": [
+        "device_type",
+        "device_role",
+        "site"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 64
+        },
+        "device_type": {
+          "$ref": "#/definitions/NestedDeviceType"
+        },
+        "device_role": {
+          "$ref": "#/definitions/NestedDeviceRole"
+        },
+        "tenant": {
+          "title": "Tenant",
+          "type": "integer"
+        },
+        "platform": {
+          "title": "Platform",
+          "type": "integer"
+        },
+        "serial": {
+          "title": "Serial number",
+          "type": "string",
+          "maxLength": 50
+        },
+        "asset_tag": {
+          "title": "Asset tag",
+          "description": "A unique tag used to identify this device",
+          "type": "string",
+          "maxLength": 50
+        },
+        "site": {
+          "$ref": "#/definitions/NestedSite"
+        },
+        "rack": {
+          "$ref": "#/definitions/NestedRack"
+        },
+        "position": {
+          "title": "Position (U)",
+          "description": "The lowest-numbered unit occupied by the device",
+          "type": "integer",
+          "maximum": 32767,
+          "minimum": 1
+        },
+        "face": {
+          "title": "Rack face",
+          "type": "integer",
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "status": {
+          "title": "Status",
+          "required": [
+            "label",
+            "value"
+          ],
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "value": {
+              "type": "integer"
+            }
+          }
+        },
+        "primary_ip4": {
+          "title": "Primary IPv4",
+          "type": "integer"
+        },
+        "primary_ip6": {
+          "title": "Primary IPv6",
+          "type": "integer"
+        },
+        "cluster": {
+          "title": "Cluster",
+          "type": "integer"
+        },
+        "virtual_chassis": {
+          "title": "Virtual chassis",
+          "type": "integer"
+        },
+        "vc_position": {
+          "title": "Vc position",
+          "type": "integer",
+          "maximum": 255,
+          "minimum": 0
+        },
+        "vc_priority": {
+          "title": "Vc priority",
+          "type": "integer",
+          "maximum": 255,
+          "minimum": 0
+        },
+        "comments": {
+          "title": "Comments",
+          "type": "string"
+        },
+        "custom_fields": {
+          "title": "Custom fields",
+          "type": "object"
+        },
+        "created": {
+          "title": "Created",
+          "type": "string",
+          "format": "date",
+          "readOnly": true
+        },
+        "last_updated": {
+          "title": "Last updated",
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true
+        }
+      }
+    },
+
     "PeerInterface": {
       "title": "Interface a",
       "required": [
@@ -18202,6 +18333,102 @@
         "cluster": {
           "title": "Cluster",
           "type": "integer"
+        },
+        "role": {
+          "title": "Role",
+          "type": "integer"
+        },
+        "tenant": {
+          "title": "Tenant",
+          "type": "integer"
+        },
+        "platform": {
+          "title": "Platform",
+          "type": "integer"
+        },
+        "primary_ip4": {
+          "title": "Primary IPv4",
+          "type": "integer"
+        },
+        "primary_ip6": {
+          "title": "Primary IPv6",
+          "type": "integer"
+        },
+        "vcpus": {
+          "title": "VCPUs",
+          "type": "integer",
+          "maximum": 32767,
+          "minimum": 0
+        },
+        "memory": {
+          "title": "Memory (MB)",
+          "type": "integer",
+          "maximum": 2147483647,
+          "minimum": 0
+        },
+        "disk": {
+          "title": "Disk (GB)",
+          "type": "integer",
+          "maximum": 2147483647,
+          "minimum": 0
+        },
+        "comments": {
+          "title": "Comments",
+          "type": "string"
+        },
+        "custom_fields": {
+          "title": "Custom fields",
+          "type": "object"
+        },
+        "created": {
+          "title": "Created",
+          "type": "string",
+          "format": "date",
+          "readOnly": true
+        },
+        "last_updated": {
+          "title": "Last updated",
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true
+        }
+      }
+    },
+    "WritableVirtualMachineResponse": {
+      "required": [
+        "name",
+        "cluster"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 64
+        },
+        "status": {
+          "title": "Status",
+          "required": [
+            "label",
+            "value"
+          ],
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "value": {
+              "type": "integer"
+            }
+          }
+        },
+        "cluster": {
+          "$ref": "#/definitions/NestedCluster"
         },
         "role": {
           "title": "Role",

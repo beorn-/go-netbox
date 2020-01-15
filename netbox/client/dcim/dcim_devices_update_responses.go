@@ -60,20 +60,20 @@ func NewDcimDevicesUpdateOK() *DcimDevicesUpdateOK {
 DcimDevicesUpdateOK dcim devices update o k
 */
 type DcimDevicesUpdateOK struct {
-	Payload *models.WritableDevice
+	Payload *models.WritableDeviceResponse
 }
 
 func (o *DcimDevicesUpdateOK) Error() string {
 	return fmt.Sprintf("[PUT /dcim/devices/{id}/][%d] dcimDevicesUpdateOK  %+v", 200, o.Payload)
 }
 
-func (o *DcimDevicesUpdateOK) GetPayload() *models.WritableDevice {
+func (o *DcimDevicesUpdateOK) GetPayload() *models.WritableDeviceResponse {
 	return o.Payload
 }
 
 func (o *DcimDevicesUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.WritableDevice)
+	o.Payload = new(models.WritableDeviceResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
