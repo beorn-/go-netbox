@@ -60,20 +60,20 @@ func NewVirtualizationClustersCreateCreated() *VirtualizationClustersCreateCreat
 VirtualizationClustersCreateCreated virtualization clusters create created
 */
 type VirtualizationClustersCreateCreated struct {
-	Payload *models.WritableCluster
+	Payload *models.WritableClusterResponse
 }
 
 func (o *VirtualizationClustersCreateCreated) Error() string {
 	return fmt.Sprintf("[POST /virtualization/clusters/][%d] virtualizationClustersCreateCreated  %+v", 201, o.Payload)
 }
 
-func (o *VirtualizationClustersCreateCreated) GetPayload() *models.WritableCluster {
+func (o *VirtualizationClustersCreateCreated) GetPayload() *models.WritableClusterResponse {
 	return o.Payload
 }
 
 func (o *VirtualizationClustersCreateCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.WritableCluster)
+	o.Payload = new(models.WritableClusterResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

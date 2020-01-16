@@ -60,20 +60,20 @@ func NewDcimSitesPartialUpdateOK() *DcimSitesPartialUpdateOK {
 DcimSitesPartialUpdateOK dcim sites partial update o k
 */
 type DcimSitesPartialUpdateOK struct {
-	Payload *models.WritableSite
+	Payload *models.WritableSiteResponse
 }
 
 func (o *DcimSitesPartialUpdateOK) Error() string {
 	return fmt.Sprintf("[PATCH /dcim/sites/{id}/][%d] dcimSitesPartialUpdateOK  %+v", 200, o.Payload)
 }
 
-func (o *DcimSitesPartialUpdateOK) GetPayload() *models.WritableSite {
+func (o *DcimSitesPartialUpdateOK) GetPayload() *models.WritableSiteResponse {
 	return o.Payload
 }
 
 func (o *DcimSitesPartialUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.WritableSite)
+	o.Payload = new(models.WritableSiteResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

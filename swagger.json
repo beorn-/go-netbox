@@ -3073,7 +3073,7 @@
           "201": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/WritableDevice"
+              "$ref": "#/definitions/WritableDeviceResponse"
             }
           }
         },
@@ -3142,7 +3142,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/WritableDevice"
+              "$ref": "#/definitions/WritableDeviceResponse"
             }
           }
         },
@@ -6210,7 +6210,7 @@
           "201": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/WritableRack"
+              "$ref": "#/definitions/WritableRackResponse"
             }
           }
         },
@@ -6718,7 +6718,7 @@
           "201": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/WritableSite"
+              "$ref": "#/definitions/WritableSiteResponse"
             }
           }
         },
@@ -6762,7 +6762,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/WritableSite"
+              "$ref": "#/definitions/WritableSiteResponse"
             }
           }
         },
@@ -6787,7 +6787,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/WritableSite"
+              "$ref": "#/definitions/WritableSiteResponse"
             }
           }
         },
@@ -11662,7 +11662,7 @@
           "201": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/WritableCluster"
+              "$ref": "#/definitions/WritableClusterResponse"
             }
           }
         },
@@ -14254,7 +14254,7 @@
           "type": "string",
           "maxLength": 64
         },
-        "device_type": {
+        "device_type":  {
           "$ref": "#/definitions/NestedDeviceType"
         },
         "device_role": {
@@ -15656,6 +15656,108 @@
         }
       }
     },
+    "WritableRackResponse": {
+      "required": [
+        "name",
+        "site"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 50
+        },
+        "facility_id": {
+          "title": "Facility ID",
+          "type": "string",
+          "maxLength": 50
+        },
+        "site": {
+          "$ref": "#/definitions/NestedSite"
+        },
+        "group": {
+          "title": "Group",
+          "type": "integer"
+        },
+        "tenant": {
+          "title": "Tenant",
+          "type": "integer"
+        },
+        "role": {
+          "title": "Role",
+          "type": "integer"
+        },
+        "serial": {
+          "title": "Serial number",
+          "type": "string",
+          "maxLength": 50
+        },
+        "type": {
+          "title": "Type",
+          "type": "integer",
+          "enum": [
+            100,
+            200,
+            300,
+            1000,
+            1100
+          ]
+        },
+        "width": {
+          "title": "Width",
+          "required": [
+            "label",
+            "value"
+          ],
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "value": {
+              "type": "integer"
+            }
+          }
+        },
+        "u_height": {
+          "title": "Height (U)",
+          "type": "integer",
+          "maximum": 100,
+          "minimum": 1
+        },
+        "desc_units": {
+          "title": "Descending units",
+          "description": "Units are numbered top-to-bottom",
+          "type": "boolean"
+        },
+        "comments": {
+          "title": "Comments",
+          "type": "string"
+        },
+        "custom_fields": {
+          "title": "Custom fields",
+          "type": "object"
+        },
+        "created": {
+          "title": "Created",
+          "type": "string",
+          "format": "date",
+          "readOnly": true
+        },
+        "last_updated": {
+          "title": "Last updated",
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true
+        }
+      }
+    },
     "NestedRegion": {
       "title": "Parent",
       "required": [
@@ -16000,6 +16102,123 @@
         }
       }
     },
+    "WritableSiteResponse": {
+      "required": [
+        "name",
+        "slug"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 50
+        },
+        "slug": {
+          "title": "Slug",
+          "type": "string",
+          "format": "slug",
+          "pattern": "^[-a-zA-Z0-9_]+$",
+          "maxLength": 50
+        },
+        "status": {
+          "title": "Status",
+          "required": [
+            "label",
+            "value"
+          ],
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "value": {
+              "type": "integer"
+            }
+          }
+        },
+        "region": {
+          "title": "Region",
+          "type": "integer"
+        },
+        "tenant": {
+          "title": "Tenant",
+          "type": "integer"
+        },
+        "facility": {
+          "title": "Facility",
+          "type": "string",
+          "maxLength": 50
+        },
+        "asn": {
+          "title": "ASN",
+          "type": "integer",
+          "maximum": 4294967295,
+          "minimum": 1
+        },
+        "time_zone": {
+          "title": "Time zone",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string",
+          "maxLength": 100
+        },
+        "physical_address": {
+          "title": "Physical address",
+          "type": "string",
+          "maxLength": 200
+        },
+        "shipping_address": {
+          "title": "Shipping address",
+          "type": "string",
+          "maxLength": 200
+        },
+        "contact_name": {
+          "title": "Contact name",
+          "type": "string",
+          "maxLength": 50
+        },
+        "contact_phone": {
+          "title": "Contact phone",
+          "type": "string",
+          "maxLength": 20
+        },
+        "contact_email": {
+          "title": "Contact E-mail",
+          "type": "string",
+          "format": "email",
+          "maxLength": 254
+        },
+        "comments": {
+          "title": "Comments",
+          "type": "string"
+        },
+        "custom_fields": {
+          "title": "Custom fields",
+          "type": "object"
+        },
+        "created": {
+          "title": "Created",
+          "type": "string",
+          "format": "date",
+          "readOnly": true
+        },
+        "last_updated": {
+          "title": "Last updated",
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true
+        }
+      }
+    },
+
     "VirtualChassis": {
       "required": [
         "master"
@@ -18173,6 +18392,56 @@
         }
       }
     },
+    "WritableClusterResponse": {
+      "required": [
+        "name",
+        "type"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 100
+        },
+        "type": {
+          "$ref": "#/definitions/NestedClusterType"
+        },
+        "group": {
+          "title": "Group",
+          "type": "integer"
+        },
+        "site": {
+          "$ref": "#/definitions/NestedSite"
+        },
+        "comments": {
+          "title": "Comments",
+          "type": "string"
+        },
+        "custom_fields": {
+          "title": "Custom fields",
+          "type": "object"
+        },
+        "created": {
+          "title": "Created",
+          "type": "string",
+          "format": "date",
+          "readOnly": true
+        },
+        "last_updated": {
+          "title": "Last updated",
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true
+        }
+      }
+    },
+
     "VirtualMachineIPAddress": {
       "title": "Primary ip",
       "required": [

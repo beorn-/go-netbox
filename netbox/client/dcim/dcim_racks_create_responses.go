@@ -60,20 +60,20 @@ func NewDcimRacksCreateCreated() *DcimRacksCreateCreated {
 DcimRacksCreateCreated dcim racks create created
 */
 type DcimRacksCreateCreated struct {
-	Payload *models.WritableRack
+	Payload *models.WritableRackResponse
 }
 
 func (o *DcimRacksCreateCreated) Error() string {
 	return fmt.Sprintf("[POST /dcim/racks/][%d] dcimRacksCreateCreated  %+v", 201, o.Payload)
 }
 
-func (o *DcimRacksCreateCreated) GetPayload() *models.WritableRack {
+func (o *DcimRacksCreateCreated) GetPayload() *models.WritableRackResponse {
 	return o.Payload
 }
 
 func (o *DcimRacksCreateCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.WritableRack)
+	o.Payload = new(models.WritableRackResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
