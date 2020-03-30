@@ -24,10 +24,9 @@ import (
 	"io"
 
 	"github.com/go-openapi/runtime"
+	"github.com/go-openapi/strfmt"
 
-	strfmt "github.com/go-openapi/strfmt"
-
-	models "github.com/beorn-/go-netbox/netbox/models"
+	"github.com/beorn-/go-netbox/netbox/models"
 )
 
 // TenancyTenantGroupsReadReader is a Reader for the TenancyTenantGroupsRead structure.

@@ -20,14 +20,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Rack rack
+//
 // swagger:model Rack
 type Rack struct {
 
@@ -371,6 +371,7 @@ func (m *Rack) UnmarshalBinary(b []byte) error {
 }
 
 // RackType Type
+//
 // swagger:model RackType
 type RackType struct {
 
@@ -438,6 +439,7 @@ func (m *RackType) UnmarshalBinary(b []byte) error {
 }
 
 // RackWidth Width
+//
 // swagger:model RackWidth
 type RackWidth struct {
 

@@ -27,10 +27,9 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
+	"github.com/go-openapi/strfmt"
 
-	strfmt "github.com/go-openapi/strfmt"
-
-	models "github.com/beorn-/go-netbox/netbox/models"
+	"github.com/beorn-/go-netbox/netbox/models"
 )
 
 // NewExtrasGraphsCreateParams creates a new ExtrasGraphsCreateParams object

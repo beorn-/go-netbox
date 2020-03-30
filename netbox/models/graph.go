@@ -20,14 +20,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Graph graph
+//
 // swagger:model Graph
 type Graph struct {
 
@@ -187,6 +187,7 @@ func (m *Graph) UnmarshalBinary(b []byte) error {
 }
 
 // GraphType Type
+//
 // swagger:model GraphType
 type GraphType struct {
 

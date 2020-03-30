@@ -12222,7 +12222,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/WritableVirtualMachine"
+              "$ref": "#/definitions/WritableVirtualMachineResponse"
             }
           }
         },
@@ -12247,7 +12247,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/WritableVirtualMachine"
+              "$ref": "#/definitions/WritableVirtualMachineResponse"
             }
           }
         },

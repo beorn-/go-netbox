@@ -20,14 +20,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // DeviceType device type
+//
 // swagger:model DeviceType
 type DeviceType struct {
 
@@ -271,6 +271,7 @@ func (m *DeviceType) UnmarshalBinary(b []byte) error {
 }
 
 // DeviceTypeInterfaceOrdering Interface ordering
+//
 // swagger:model DeviceTypeInterfaceOrdering
 type DeviceTypeInterfaceOrdering struct {
 
@@ -338,6 +339,7 @@ func (m *DeviceTypeInterfaceOrdering) UnmarshalBinary(b []byte) error {
 }
 
 // DeviceTypeSubdeviceRole Subdevice role
+//
 // swagger:model DeviceTypeSubdeviceRole
 type DeviceTypeSubdeviceRole struct {
 

@@ -22,14 +22,14 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Interface Interface
+//
 // swagger:model Interface
 type Interface struct {
 
@@ -344,6 +344,7 @@ func (m *Interface) UnmarshalBinary(b []byte) error {
 }
 
 // InterfaceFormFactor Form factor
+//
 // swagger:model InterfaceFormFactor
 type InterfaceFormFactor struct {
 
@@ -411,6 +412,7 @@ func (m *InterfaceFormFactor) UnmarshalBinary(b []byte) error {
 }
 
 // InterfaceMode Mode
+//
 // swagger:model InterfaceMode
 type InterfaceMode struct {
 

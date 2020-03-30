@@ -24,10 +24,9 @@ import (
 	"io"
 
 	"github.com/go-openapi/runtime"
+	"github.com/go-openapi/strfmt"
 
-	strfmt "github.com/go-openapi/strfmt"
-
-	models "github.com/beorn-/go-netbox/netbox/models"
+	"github.com/beorn-/go-netbox/netbox/models"
 )
 
 // VirtualizationVirtualMachinesPartialUpdateReader is a Reader for the VirtualizationVirtualMachinesPartialUpdate structure.
@@ -60,20 +59,20 @@ func NewVirtualizationVirtualMachinesPartialUpdateOK() *VirtualizationVirtualMac
 VirtualizationVirtualMachinesPartialUpdateOK virtualization virtual machines partial update o k
 */
 type VirtualizationVirtualMachinesPartialUpdateOK struct {
-	Payload *models.WritableVirtualMachine
+	Payload *models.WritableVirtualMachineResponse
 }
 
 func (o *VirtualizationVirtualMachinesPartialUpdateOK) Error() string {
 	return fmt.Sprintf("[PATCH /virtualization/virtual-machines/{id}/][%d] virtualizationVirtualMachinesPartialUpdateOK  %+v", 200, o.Payload)
 }
 
-func (o *VirtualizationVirtualMachinesPartialUpdateOK) GetPayload() *models.WritableVirtualMachine {
+func (o *VirtualizationVirtualMachinesPartialUpdateOK) GetPayload() *models.WritableVirtualMachineResponse {
 	return o.Payload
 }
 
 func (o *VirtualizationVirtualMachinesPartialUpdateOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.WritableVirtualMachine)
+	o.Payload = new(models.WritableVirtualMachineResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

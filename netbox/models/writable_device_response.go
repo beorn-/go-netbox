@@ -22,14 +22,14 @@ package models
 import (
 	"encoding/json"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // WritableDeviceResponse writable device response
+//
 // swagger:model WritableDeviceResponse
 type WritableDeviceResponse struct {
 
@@ -450,6 +450,7 @@ func (m *WritableDeviceResponse) UnmarshalBinary(b []byte) error {
 }
 
 // WritableDeviceResponseStatus Status
+//
 // swagger:model WritableDeviceResponseStatus
 type WritableDeviceResponseStatus struct {
 

@@ -22,14 +22,14 @@ package models
 import (
 	"encoding/json"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // WritableInterfaceConnection writable interface connection
+//
 // swagger:model WritableInterfaceConnection
 type WritableInterfaceConnection struct {
 

@@ -22,14 +22,14 @@ package models
 import (
 	"encoding/json"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // WritableRackResponse writable rack response
+//
 // swagger:model WritableRackResponse
 type WritableRackResponse struct {
 
@@ -314,6 +314,7 @@ func (m *WritableRackResponse) UnmarshalBinary(b []byte) error {
 }
 
 // WritableRackResponseWidth Width
+//
 // swagger:model WritableRackResponseWidth
 type WritableRackResponseWidth struct {
 

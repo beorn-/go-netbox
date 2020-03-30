@@ -20,14 +20,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // IPAddress IP address
+//
 // swagger:model IPAddress
 type IPAddress struct {
 
@@ -338,6 +338,7 @@ func (m *IPAddress) UnmarshalBinary(b []byte) error {
 }
 
 // IPAddressRole Role
+//
 // swagger:model IPAddressRole
 type IPAddressRole struct {
 
@@ -405,6 +406,7 @@ func (m *IPAddressRole) UnmarshalBinary(b []byte) error {
 }
 
 // IPAddressStatus Status
+//
 // swagger:model IPAddressStatus
 type IPAddressStatus struct {
 

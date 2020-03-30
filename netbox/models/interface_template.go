@@ -20,14 +20,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // InterfaceTemplate interface template
+//
 // swagger:model InterfaceTemplate
 type InterfaceTemplate struct {
 
@@ -142,6 +142,7 @@ func (m *InterfaceTemplate) UnmarshalBinary(b []byte) error {
 }
 
 // InterfaceTemplateFormFactor Form factor
+//
 // swagger:model InterfaceTemplateFormFactor
 type InterfaceTemplateFormFactor struct {
 

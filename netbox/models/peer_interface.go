@@ -20,14 +20,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // PeerInterface Interface a
+//
 // swagger:model PeerInterface
 type PeerInterface struct {
 
@@ -245,6 +245,7 @@ func (m *PeerInterface) UnmarshalBinary(b []byte) error {
 }
 
 // PeerInterfaceFormFactor Form factor
+//
 // swagger:model PeerInterfaceFormFactor
 type PeerInterfaceFormFactor struct {
 

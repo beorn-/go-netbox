@@ -22,14 +22,14 @@ package models
 import (
 	"encoding/json"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // WritablePowerPort writable power port
+//
 // swagger:model WritablePowerPort
 type WritablePowerPort struct {
 
