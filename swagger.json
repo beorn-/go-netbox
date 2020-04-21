@@ -18592,7 +18592,7 @@
         },
         "status": {
           "title": "Status",
-          "type": "integer",
+          "type": "object",
           "enum": [
             1,
             0,

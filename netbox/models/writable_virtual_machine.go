@@ -20,8 +20,6 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"encoding/json"
-
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -86,7 +84,7 @@ type WritableVirtualMachine struct {
 
 	// Status
 	// Enum: [1 0 3]
-	Status int64 `json:"status,omitempty"`
+	Status interface{} `json:"status,omitempty"`
 
 	// Tenant
 	Tenant int64 `json:"tenant,omitempty"`
@@ -122,10 +120,6 @@ func (m *WritableVirtualMachine) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateStatus(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -215,40 +209,6 @@ func (m *WritableVirtualMachine) validateName(formats strfmt.Registry) error {
 	}
 
 	if err := validate.MaxLength("name", "body", string(*m.Name), 64); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-var writableVirtualMachineTypeStatusPropEnum []interface{}
-
-func init() {
-	var res []int64
-	if err := json.Unmarshal([]byte(`[1,0,3]`), &res); err != nil {
-		panic(err)
-	}
-	for _, v := range res {
-		writableVirtualMachineTypeStatusPropEnum = append(writableVirtualMachineTypeStatusPropEnum, v)
-	}
-}
-
-// prop value enum
-func (m *WritableVirtualMachine) validateStatusEnum(path, location string, value int64) error {
-	if err := validate.Enum(path, location, value, writableVirtualMachineTypeStatusPropEnum); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (m *WritableVirtualMachine) validateStatus(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.Status) { // not required
-		return nil
-	}
-
-	// value enum
-	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
 		return err
 	}
 
